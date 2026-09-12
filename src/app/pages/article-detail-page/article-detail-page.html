@@ -1,1 +1,36 @@
-<p>article-detail-page works!</p>
+<div style="margin: 20px;">
+  <button (click)="goBack()" style="margin-bottom: 20px;">
+    ← Back to List
+  </button>
+
+  @if (loading) {
+    <div style="color: #999;">
+      Loading article...
+    </div>
+  }
+
+  @if (notFound && !loading) {
+    <div style="color: red;">
+      <h2>Article Not Found</h2>
+      <p>The article you are looking for does not exist.</p>
+    </div>
+  }
+
+  @if (article && !loading) {
+    <div style="border: 1px solid #ddd; padding: 20px;">
+      <h2>Article Details</h2>
+      <div>
+        <strong>Article Number:</strong>
+        <p>{{ article.articleNumber }}</p>
+      </div>
+      <div>
+        <strong>Description:</strong>
+        <p>{{ article.articleDescription }}</p>
+      </div>
+      <div>
+        <strong>Unit Weight (grams):</strong>
+        <p>{{ article.weight }}</p>
+      </div>
+    </div>
+  }
+</div>
